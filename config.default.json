@@ -1,21 +1,27 @@
 {
     "BALANCERS": [
         {
-            "assetName": "BNB",
-            "expectedPercent": 0.33,
-            "isFiat": false
+            "assetName": "USDC",
+            "expectedPercent": 0.1
         },
         {
-            "assetName": "ETH",
-            "expectedPercent": 0.33,
-            "isFiat": false
+            "assetName": "KUB",
+            "expectedPercent": 0.3
         },
         {
-            "assetName": "USDT",
-            "expectedPercent": 0.33,
-            "isFiat": false
+            "assetName": "IOST",
+            "expectedPercent": 0.2
+        },
+        {
+            "assetName": "JFIN",
+            "expectedPercent": 0.2
+        },
+        {
+            "assetName": "SIX",
+            "expectedPercent": 0.2
         }
     ],
+
     "TRIGGER_PERCENT": 0.02,
     "MIN_AMOUNT": 15,
     "INTERVAL_MINUTE": 50,
