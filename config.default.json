@@ -1,0 +1,25 @@
+{
+    "BALANCERS": [
+        {
+            "assetName": "BNB",
+            "expectedPercent": 0.33,
+            "isFiat": false
+        },
+        {
+            "assetName": "ETH",
+            "expectedPercent": 0.33,
+            "isFiat": false
+        },
+        {
+            "assetName": "USDT",
+            "expectedPercent": 0.33,
+            "isFiat": false
+        }
+    ],
+    "TRIGGER_PERCENT": 0.02,
+    "MIN_AMOUNT": 15,
+    "INTERVAL_MINUTE": 50,
+    "BASE_FIAT": "THB",
+    "API_KEY": "YOUR_API_KEY_HERE",
+    "API_SECRET": "YOUR_API_SECRET_HERE"
+}
