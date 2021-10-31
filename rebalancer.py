@@ -5,7 +5,7 @@ import time
 import json
 from decimal import Decimal, ROUND_DOWN
 
-from apiConnection import BitKubConnection
+from apiConnection import BitKubConnection, CallServerError
 
 import logging
 
@@ -120,10 +120,16 @@ class Rebalancer(object):
 
 
             for placeAskDict in placeAskDictList:
-                resultDict = self.apiConnection.placeAsk( placeAskDict['sym'], placeAskDict['amt'] )
+                try:
+                    resultDict = self.apiConnection.placeAsk( placeAskDict['sym'], placeAskDict['amt'] )
+                except CallServerError as e:
+                    logging.error(e)
 
             for placeBidDict in placeBidDictList:
-                resultDict = self.apiConnection.placeBid( placeBidDict['sym'], placeBidDict['amt'] )
+                try:
+                    resultDict = self.apiConnection.placeBid( placeBidDict['sym'], placeBidDict['amt'] )
+                except CallServerError as e:
+                    logging.error(e)
 
     def run( self ):
         
@@ -172,10 +178,12 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='This is bot rebalancer')
 
     # Required positional argument
-    parser.add_argument('configJsonFilePath', type=str,
-                        help='Json configuration file')
+    parser.add_argument(    'configJsonFilePath', type=str,
+                            help='Json configuration file'  )
 
     args = parser.parse_args()
+
+    logging.basicConfig(format='%(asctime)s [%(levelname)s] : %(funcName)s : %(message)s', level = logging.INFO)
 
     rebalancerConfig = RebalancerConfig( args.configJsonFilePath )
 
